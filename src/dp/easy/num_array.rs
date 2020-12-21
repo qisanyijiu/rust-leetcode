@@ -1,5 +1,3 @@
-use std::thread::sleep;
-
 pub struct NumArray{
     sum: Vec<i32>
 }

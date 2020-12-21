@@ -1,0 +1,10 @@
+mod longest_palindrome;
+mod coin_change;
+mod partition;
+mod max_product;
+mod rob;
+mod word_break;
+mod maximal_square;
+mod nth_ugly_number;
+mod num_squares;
+mod sum_region;

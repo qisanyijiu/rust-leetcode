@@ -1,5 +1,3 @@
-use std::sync::atomic::Ordering::SeqCst;
-
 pub struct Solution {}
 
 impl Solution {
