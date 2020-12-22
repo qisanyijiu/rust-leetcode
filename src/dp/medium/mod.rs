@@ -8,3 +8,6 @@ mod maximal_square;
 mod nth_ugly_number;
 mod num_squares;
 mod sum_region;
+mod unique_paths;
+mod unique_paths_with_obstacles;
+mod min_path_sum;
