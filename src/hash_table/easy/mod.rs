@@ -24,3 +24,4 @@ mod get_hint;
 mod number_of_boomerangs;
 mod island_perimeter;
 mod find_error_nums;
+mod min_operations;
