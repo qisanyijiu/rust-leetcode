@@ -7,3 +7,4 @@ mod find_shortest_sub_array;
 mod pivot_index;
 mod flip_and_invert_image;
 mod large_group_positions;
+mod minimum_operations;
