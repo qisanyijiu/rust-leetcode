@@ -11,3 +11,4 @@ mod sum_region;
 mod unique_paths;
 mod unique_paths_with_obstacles;
 mod min_path_sum;
+mod max_sub_array;
