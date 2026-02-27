@@ -8,4 +8,5 @@ mod linked_list;
 mod stack;
 mod double_pointer;
 mod sliding_window;
+mod sort;
 fn main() {}
