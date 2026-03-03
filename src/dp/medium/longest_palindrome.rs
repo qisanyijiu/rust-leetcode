@@ -19,47 +19,32 @@ https://leetcode-cn.com/problems/longest-palindromic-substring/
 **/
 impl Solution {
     pub fn longest_palindrome(s: String) -> String {
-        if s.len() < 1 {
+        if s.len() < 2 {
             return s;
         }
-
-        let s_chars: Vec<char>  = s.chars().collect();
-        let mut dp: Vec<Vec<bool>> = Vec::new();
-        let mut i = 0;
-        while i < s.len() {
-            let mut row = Vec::new();
-            let mut j:usize = 0;
-            while j < s.len() {
-                row.push(false);
-                j += 1
+        let s_chars: Vec<char> = s.chars().collect();
+        let mut start = 0;
+        let mut end = 0;
+        for i in 1..s.len() {
+            let len1 = Self::expand_around_center(&s_chars, i as i32, i as i32);
+            let len2 = Self::expand_around_center(&s_chars, i as i32, (i+1) as i32);
+            let len = len1.max(len2);
+            if len > end - start {
+                start = i - (len - 1) / 2;
+                end = i + len / 2;
             }
-            dp.push(row);
-            i += 1
         }
-        let mut ans:Vec<char> = Vec::new();
+        return s[start..=end].to_string();
+    }
 
-        let mut l: usize = 0;
-        while l < s.len() {
-            let mut i: usize = 0;
-            while i + l < s.len() {
-                let j = i + l;
-                if l == 0 {
-                    dp[i][j] = true;
-                } else if l == 1 {
-                    dp[i][j] = s_chars[i] == s_chars[j]
-                } else{
-                    dp[i][j] = s_chars[i] == s_chars[j] && dp[i+1][j-1]
-                }
-                if dp[i][j] && l + 1 > ans.len() {
-                    ans = s_chars[i..(j+1)].to_vec()
-                }
-                i += 1
-            }
-            l += 1
+    fn expand_around_center(s: &Vec<char>, left: i32, right: i32) -> usize {
+        let mut left = left;
+        let mut right = right;
+        while left >= 0 && right < s.len() as i32 && s[left as usize] == s[right as usize] {
+            left -= 1;
+            right += 1;
         }
-
-        let res: String = ans.into_iter().collect();
-        res
+        return (right - left - 1) as usize;
     }
 }
 
@@ -77,7 +62,7 @@ mod tests {
         let cases = vec![
             Case{
                 s: String::from("babad"),
-                result: String::from("bab")
+                result: String::from("aba")
             },
             Case{
                 s: String::from("cbbd"),
