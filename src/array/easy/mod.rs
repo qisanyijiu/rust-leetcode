@@ -8,3 +8,5 @@ mod pivot_index;
 mod flip_and_invert_image;
 mod large_group_positions;
 mod minimum_operations;
+mod num_special;
+mod add_binary;

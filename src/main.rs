@@ -9,4 +9,6 @@ mod stack;
 mod double_pointer;
 mod sliding_window;
 mod sort;
+mod math;
+mod bits;
 fn main() {}
